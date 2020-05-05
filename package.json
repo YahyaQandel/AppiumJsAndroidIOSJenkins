@@ -7,7 +7,10 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "e2e:android" : "PLATFORM=android mocha --timeout=120000 __tests__/e2e/",
+    "e2e:ios" : "PLATFORM=ios mocha --timeout=120000 __tests__/e2e/",
+    "e2e" : "npm run e2e:android && npm run e2e:ios"
   },
   "dependencies": {
     "react": "16.11.0",
