@@ -14,6 +14,7 @@ import {
   View,
   Text,
   StatusBar,
+  Platform
 } from 'react-native';
 
 import {
@@ -23,7 +24,7 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-
+export const testProps = id => Platform.OS === 'android' ? {accessibilityLabel: id} : {testID: id}; 
 const App: () => React$Node = () => {
   return (
     <>
@@ -39,7 +40,7 @@ const App: () => React$Node = () => {
             </View>
           )}
           <View style={styles.body}>
-            <Text style={styles.sectionTitle}>Text to be tested</Text>
+          <Text {...testProps("welcomeTestLabel")} style={styles.sectionTitle}>Text to be tested</Text>
           </View>
         </ScrollView>
       </SafeAreaView>
